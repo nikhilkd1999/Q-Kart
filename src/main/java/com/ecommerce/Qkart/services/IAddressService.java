@@ -2,6 +2,7 @@ package com.ecommerce.Qkart.services;
 
 import com.ecommerce.Qkart.entities.Address;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface IAddressService {
@@ -11,5 +12,7 @@ public interface IAddressService {
     void delete(Address address);
 
     Optional<Address> findById(Integer id);
+
+    List<Address> getAllAddress();
 
 }
