@@ -19,7 +19,7 @@ public class ProductReview {
 
     @OneToOne
     private Product product;
-    private int rating;
+    private double rating;
     private String reviewText;
     private Date reviewDate;
 

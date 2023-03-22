@@ -1,12 +1,13 @@
 package com.ecommerce.Qkart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
+@Table(name = "jpa_user")
 public class User {
     @Id
     private int userId;
@@ -14,8 +15,11 @@ public class User {
     private String email;
     private String password;
 
-    @ManyToOne
-    private Address address;
+    @OneToMany
+    private List<Address> address;
     private String phone;
+
+    @OneToOne
+    private Cart cart;
 
 }
