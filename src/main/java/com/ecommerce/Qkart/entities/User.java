@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 public class User {
     @Id
-    private int UserID;
+    private int userId;
     private String name;
     private String email;
     private String password;
@@ -17,9 +17,5 @@ public class User {
     @ManyToOne
     private Address address;
     private String phone;
-
-//  add_to_cart() : void
-//  +place_order() : void
-//  +write_review() : void
 
 }
