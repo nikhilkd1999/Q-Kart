@@ -2,6 +2,7 @@ package com.ecommerce.Qkart.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,9 +21,11 @@ public class Order {
 
     @Id
     private int orderID;
-    @OneToOne
-    private User user;
+
+    private List<Product> orderedProducts;
     private Date orderDate;
-    private String status;
+
+    @ManyToOne
+    private Address address;
 
 }

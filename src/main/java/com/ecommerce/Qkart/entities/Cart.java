@@ -22,6 +22,8 @@ public class Cart {
     @OneToMany
     private List<Product> products;
 
-    @OneToOne
-    private User user;
+    private double cartValue;
+
+    // @OneToOne
+    // private User user;
 }

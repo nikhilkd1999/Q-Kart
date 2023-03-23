@@ -21,8 +21,6 @@ public class ProductReview {
     @OneToOne
     private User user;
 
-    @OneToOne
-    private Product product;
     private double rating;
     private String reviewText;
     private Date reviewDate;

@@ -2,6 +2,7 @@ package com.ecommerce.Qkart.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +21,10 @@ public class Payment {
 
     @OneToOne
     private Order order;
-    private String paymentMethod;
 
     private double amountPaid;
     private Date paymentDate;
+
+    @ManyToOne
+    private User user;
 }

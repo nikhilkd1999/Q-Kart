@@ -18,6 +18,7 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private UserType userType;
 
     @OneToMany
     private List<Address> address;
@@ -25,5 +26,8 @@ public class User {
 
     @OneToOne
     private Cart cart;
+
+    @OneToMany
+    private List<Order> orders;
 
 }
