@@ -1,9 +1,10 @@
 package com.ecommerce.Qkart.repositories;
 
-import com.ecommerce.Qkart.entities.Address;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import com.ecommerce.Qkart.entities.Address;
+
 @Repository
-public interface IAddressRepository extends JpaRepository<Address, Integer> {
+public interface IAddressRepository extends MongoRepository<Address, Integer> {
 }

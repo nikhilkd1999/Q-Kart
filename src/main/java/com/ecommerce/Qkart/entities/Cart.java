@@ -1,29 +1,27 @@
 package com.ecommerce.Qkart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
-@Entity
+@Document
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cart {
 
-    @Id
-    private int id;
+	@Id
+	private int id;
 
-    @OneToMany
-    private List<Product> products;
+	private List<Product> products;
 
-    private double cartValue;
+	private double cartValue;
 
-    // @OneToOne
-    // private User user;
+	// @OneToOne
+	// private User user;
 }

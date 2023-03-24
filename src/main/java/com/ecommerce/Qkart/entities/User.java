@@ -1,33 +1,32 @@
 package com.ecommerce.Qkart.entities;
 
-import jakarta.persistence.*;
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
-@Entity
+@Document(collection = "qkart_user")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "jpa_user")
 public class User {
     @Id
     private int userId;
     private String name;
     private String email;
     private String password;
-    private UserType userType;
-
-    @OneToMany
-    private List<Address> address;
     private String phone;
 
-    @OneToOne
+    private UserType userType;
+
+    private List<Address> address;
+
     private Cart cart;
 
-    @OneToMany
     private List<Order> orders;
 
 }

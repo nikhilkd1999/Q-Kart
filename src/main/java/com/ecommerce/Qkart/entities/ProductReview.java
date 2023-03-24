@@ -1,28 +1,27 @@
 package com.ecommerce.Qkart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import java.sql.Date;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @Data
-@Entity
+@Document
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductReview {
 
-    @Id
-    private int reviewID;
+	@Id
+	private int reviewID;
 
-    @OneToOne
-    private User user;
+	private User user;
 
-    private double rating;
-    private String reviewText;
-    private Date reviewDate;
+	private double rating;
+	private String reviewText;
+	private Date reviewDate;
 
 }

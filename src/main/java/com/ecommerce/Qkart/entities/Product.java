@@ -2,32 +2,30 @@ package com.ecommerce.Qkart.entities;
 
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
+@Document
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
-    @Id
-    private int productID;
+	@Id
+	private int productID;
 
-    private String productImageUrl;
-    private String name;
-    private String description;
-    private double price;
-    private int quantityInStock;
+	private String productImageUrl;
+	private String name;
+	private String description;
+	private double price;
+	private int quantityInStock;
 
-    @OneToMany
-    private List<ProductReview> reviews;
+	private List<ProductReview> reviews;
 
-    // private
-
+	// private
 
 }
