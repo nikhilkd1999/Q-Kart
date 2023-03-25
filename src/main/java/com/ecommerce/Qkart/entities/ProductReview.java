@@ -4,24 +4,28 @@ import java.sql.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Document
-@NoArgsConstructor
+@Builder
+
 @AllArgsConstructor
 public class ProductReview {
 
 	@Id
-	private int reviewID;
+	private String id;
 
-	private User user;
-
-	private double rating;
+	private Double rating;
 	private String reviewText;
 	private Date reviewDate;
+
+	@DocumentReference
+	private final User user;
 
 }
