@@ -17,6 +17,6 @@ public enum ProductCategory {
     }
 
     public String getCategory() {
-        return category;
+        return this.category;
     }
 }
