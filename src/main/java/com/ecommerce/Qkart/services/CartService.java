@@ -1,11 +1,12 @@
 package com.ecommerce.Qkart.services;
 
-import com.ecommerce.Qkart.entities.Cart;
-import com.ecommerce.Qkart.repositories.ICartRepository;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import com.ecommerce.Qkart.entities.Cart;
+import com.ecommerce.Qkart.repositories.ICartRepository;
 
 @Service
 public class CartService implements ICartService {
@@ -24,7 +25,7 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public Optional<Cart> findById(Integer id) {
+    public Optional<Cart> findById(String id) {
         return cartRepository.findById(id);
     }
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.ecommerce.Qkart.entities.Order;
 
 @Repository
-public interface IOrderRepository extends MongoRepository<Order, Integer> {
+public interface IOrderRepository extends MongoRepository<Order, String> {
 }

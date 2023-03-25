@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.ecommerce.Qkart.entities.Address;
 
 @Repository
-public interface IAddressRepository extends MongoRepository<Address, Integer> {
+public interface IAddressRepository extends MongoRepository<Address, String> {
 }

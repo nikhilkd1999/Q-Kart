@@ -1,14 +1,14 @@
 package com.ecommerce.Qkart.services;
 
-import com.ecommerce.Qkart.entities.User;
-
 import java.util.Optional;
+
+import com.ecommerce.Qkart.entities.User;
 
 public interface IUserService {
     User save(User user);
 
     void delete(User user);
 
-    Optional<User> findById(Integer id);
+    Optional<User> findById(String id);
 
 }

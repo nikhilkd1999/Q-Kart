@@ -1,14 +1,14 @@
 package com.ecommerce.Qkart.services;
 
-import com.ecommerce.Qkart.entities.ProductReview;
-
 import java.util.Optional;
+
+import com.ecommerce.Qkart.entities.ProductReview;
 
 public interface IProductReviewService {
     ProductReview save(ProductReview productReview);
 
     void delete(ProductReview productReview);
 
-    Optional<ProductReview> findById(Integer id);
+    Optional<ProductReview> findById(String id);
 
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.ecommerce.Qkart.entities.Payment;
 
 @Repository
-public interface IPaymentRepository extends MongoRepository<Payment, Integer> {
+public interface IPaymentRepository extends MongoRepository<Payment, String> {
 }

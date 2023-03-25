@@ -1,12 +1,13 @@
 package com.ecommerce.Qkart.services;
 
-import com.ecommerce.Qkart.entities.Address;
-import com.ecommerce.Qkart.repositories.IAddressRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.ecommerce.Qkart.entities.Address;
+import com.ecommerce.Qkart.repositories.IAddressRepository;
 
 @Service
 public class AddressService implements IAddressService {
@@ -25,7 +26,7 @@ public class AddressService implements IAddressService {
     }
 
     @Override
-    public Optional<Address> findById(Integer id) {
+    public Optional<Address> findById(String id) {
         return addressRepository.findById(id);
     }
 

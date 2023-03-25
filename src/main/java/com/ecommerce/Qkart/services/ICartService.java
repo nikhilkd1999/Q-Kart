@@ -1,8 +1,8 @@
 package com.ecommerce.Qkart.services;
 
-import com.ecommerce.Qkart.entities.Cart;
-
 import java.util.Optional;
+
+import com.ecommerce.Qkart.entities.Cart;
 
 public interface ICartService {
 
@@ -10,6 +10,6 @@ public interface ICartService {
 
     void delete(Cart cart);
 
-    Optional<Cart> findById(Integer id);
+    Optional<Cart> findById(String id);
 
 }
