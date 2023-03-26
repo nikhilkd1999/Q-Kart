@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.Qkart.entities.Product;
 import com.ecommerce.Qkart.services.IProductService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @RestController
 public class ProductController {
 
@@ -31,7 +34,10 @@ public class ProductController {
 		final Optional<Product> productOptional = productService.findById(productId);
 
 		if (productOptional.isEmpty()) {
-			return ResponseEntity.notFound().build();
+			final String errorMessage = "Product with ID " + productId + " not found";
+
+			return ResponseEntity.notFound().header("error", errorMessage).build();
+
 		}
 
 		return ResponseEntity.ok(productOptional.get());

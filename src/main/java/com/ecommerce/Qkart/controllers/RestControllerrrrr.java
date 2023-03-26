@@ -55,7 +55,10 @@ public class RestControllerrrrr {
                                 .build();
 
                 Product product = Product.builder().category(ProductCategory.ELECTRONICS).description("New Mobile")
-                                .name("I-Phone 14").price(150000.0).quantityInStock(10).build();
+                                .name("I-Phone 14").price(150000.0).quantityInStock(10)
+                                .productImageUrl(
+                                                "https://images.unsplash.com/photo-1677563277026-17a254ea02f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+                                .build();
 
                 productRepository.save(product);
 
