@@ -4,30 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Product List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Product List</h1>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>Category</th>
-            <th>Stock</th>
-        </tr>
-        <tr th:each="product : ${products}">
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.description}"></td>
-            <td th:text="${product.price}"></td>
-            <td>
-                <img th:src="${product.productImageUrl}" alt="Product Image" height="50">
-            </td>
-            <td th:text="${product.category.category}"></td>
-            <td th:text="${product.quantityInStock}"></td>
-        </tr>
-    </table>
+    <div class="container">
+        <h1>Product List</h1>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td>
+                        <img th:src="${product.productImageUrl}" alt="Product Image" height="50">
+                    </td>
+                    <td th:text="${product.category.category}"></td>
+                    <td th:text="${product.quantityInStock}"></td>
+                    <td>
+                        <a th:href="@{/products/__${product.productID}__}">
+                            View Product
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
