@@ -5,22 +5,33 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.Qkart.entities.Product;
+import com.ecommerce.Qkart.services.ICartService;
 import com.ecommerce.Qkart.services.IProductService;
 
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-@RestController
+@Controller
 public class ProductController {
+
+	@Autowired
+	private ICartService cartService;
 
 	@Autowired
 	private IProductService productService;
 
+	@ResponseBody
 	@GetMapping("/products")
 	public ResponseEntity<List<Product>> getAllProducts() {
 
@@ -29,19 +40,30 @@ public class ProductController {
 	}
 
 	@GetMapping("/products/{productID}")
-	public ResponseEntity<Product> getProduct(@PathVariable(name = "productID") String productId) {
+public String getProduct(@PathVariable(name = "productID") String productId, Model model) {
 
-		final Optional<Product> productOptional = productService.findById(productId);
+    final Optional<Product> productOptional = productService.findById(productId);
 
-		if (productOptional.isEmpty()) {
-			final String errorMessage = "Product with ID " + productId + " not found";
+    if (productOptional.isEmpty()) {
+        final String errorMessage = "Product with ID " + productId + " not found";
+        model.addAttribute("errorMessage", errorMessage);
+        return "error"; // return the error page
+    }
 
-			return ResponseEntity.notFound().header("error", errorMessage).build();
+    Product product = productOptional.get();
+    model.addAttribute("product", product);
+    return "product"; // return the product details page
+}
 
-		}
 
-		return ResponseEntity.ok(productOptional.get());
+	@ResponseBody
+	@PutMapping("/addToCart")
+	public ResponseEntity<String> addToCart(@RequestParam String productId){
 
-	}
+		
+
+		return ResponseEntity.ok("added");
+	} 
+
 
 }
