@@ -21,6 +21,17 @@
                 <p class="card-text" th:text="'Category: ' + ${product.category.name}"></p>
             </div>
         </div>
+        <div class="card-body">
+            <!-- Product details -->
+            ...
+
+            <!-- Add to cart button -->
+            <form method="post" action="/addToCart">
+                <input type="hidden" name="productId" th:value="${product.productID}">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

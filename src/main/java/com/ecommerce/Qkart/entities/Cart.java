@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Cart {
 	@Id
 	private String id;
-	
+
 	@DocumentReference
 	private List<Product> products;
 }
