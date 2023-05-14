@@ -9,6 +9,6 @@ public interface IUserService {
 
     void delete(User user);
 
-    Optional<User> findById(String id);
+    Optional<User> findByEmail(String id);
 
 }

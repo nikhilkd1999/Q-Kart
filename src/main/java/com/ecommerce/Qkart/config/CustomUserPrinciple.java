@@ -10,6 +10,8 @@ import com.ecommerce.Qkart.entities.User;
 
 public class CustomUserPrinciple implements UserDetails {
 
+    private static final long serialVersionUID = 2292409200147044877L;
+
     private final User user;
 
     public CustomUserPrinciple(final User user) {
@@ -29,7 +31,7 @@ public class CustomUserPrinciple implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUserId();
+        return user.getEmail();
     }
 
     @Override

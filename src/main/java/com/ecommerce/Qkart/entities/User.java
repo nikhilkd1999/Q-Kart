@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @Id
-    private String userId;
-    private String name;
     private String email;
+    private String name;
     private String password;
     private String phone;
 

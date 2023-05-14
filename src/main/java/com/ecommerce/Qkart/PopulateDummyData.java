@@ -29,10 +29,10 @@ public class PopulateDummyData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        productRepository.deleteAll();
-        addressRepository.deleteAll();
-        userRepository.deleteAll();
-        initData();
+        // productRepository.deleteAll();
+        // addressRepository.deleteAll();
+        // userRepository.deleteAll();
+        // initData();
     }
 
     private void initData() {

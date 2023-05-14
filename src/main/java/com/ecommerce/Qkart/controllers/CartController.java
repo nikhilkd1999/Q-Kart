@@ -56,11 +56,11 @@ public class CartController {
     public String addToCart(
             @RequestParam String productId, Principal principal) {
 
-        final String username = principal.getName();
+        final String email = principal.getName();
 
-        System.out.println(username);
+        System.out.println(email);
 
-        Optional<User> userOptional = userService.findById(username);
+        Optional<User> userOptional = userService.findByEmail(email);
 
         if (userOptional.isEmpty()) {
             return "redirect:/products";

@@ -30,8 +30,13 @@ public class SignUpController {
     }
 
     @PostMapping("/signup")
-    public String registerUser(@ModelAttribute("user") User user) {
+    public String registerUser(@ModelAttribute("user") User user) throws Exception {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            throw new Exception("User with email " + user.getEmail() + " already exists");
+        }
+
         userRepository.save(user);
         return "redirect:/login";
     }

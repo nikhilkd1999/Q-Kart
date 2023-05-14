@@ -26,7 +26,7 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public Optional<User> findById(String id) {
-		return userRepository.findById(id);
+	public Optional<User> findByEmail(String id) {
+		return userRepository.findByEmail(id);
 	}
 }
