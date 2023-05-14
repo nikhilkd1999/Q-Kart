@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <div th:replace="header :: header"></div>
     <h1>Login</h1>
     <form method="post" action="/login">
         <div>
@@ -21,6 +22,7 @@
             <button type="submit">Login</button>
         </div>
     </form>
+    <div th:replace="footer :: footer"></div>
 </body>
 
 </html>

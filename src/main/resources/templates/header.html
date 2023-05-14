@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Q-Kart</title>
+
+
+</head>
+
+<body>
+    <header>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Q-Kart</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                </ul>
+
+
+                <div class="ml-auto">
+
+                    <form class="form-inline" th:action="@{/login}" method="GET">
+                        <button class="btn btn-outline-success" type="submit">Sign In</button>
+                        <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+                    </form>
+                </div>
+
+                <div style="margin: 10px;"></div>
+
+                <div>
+
+                    <form class="form-inline" th:action="@{/signup}" method="GET">
+                        <button class="btn btn-outline-success" type="submit">Sign Up</button>
+                        <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
+                    </form>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </nav>
+    </header>
+</body>
+
+</html>
