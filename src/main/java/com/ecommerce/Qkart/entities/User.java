@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Document(collection = "qkart_user")
-@NoArgsConstructor
 @AllArgsConstructor
 public class User {
 
@@ -34,5 +33,9 @@ public class User {
 
     @DocumentReference
     private List<Order> orders;
+
+    public User() {
+        this.cart = new Cart();
+    }
 
 }

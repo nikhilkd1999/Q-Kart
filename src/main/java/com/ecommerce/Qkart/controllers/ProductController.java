@@ -31,8 +31,8 @@ public class ProductController {
 
 	}
 
-	@GetMapping("/products/{productID}")
-	public String getProduct(@PathVariable(name = "productID") String productId, Model model) {
+	@GetMapping("/products/{productId}")
+	public String getProduct(@PathVariable(name = "productId") String productId, Model model) {
 
 		final Optional<Product> productOptional = productService.findById(productId);
 

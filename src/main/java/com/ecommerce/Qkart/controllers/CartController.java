@@ -1,6 +1,8 @@
 package com.ecommerce.Qkart.controllers;
 
 import java.security.Principal;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,11 +72,17 @@ public class CartController {
 
         Cart cart = user.getCart();
 
+        if (cart == null) {
+            cart = new Cart();
+            user.setCart(cart);
+        }
+
         Product product = productService.findById(productId).get();
 
         cart.getProducts().add(product);
 
         cartService.save(cart);
+        userService.save(user);
 
         return "redirect:/";
 
@@ -86,6 +94,26 @@ public class CartController {
     // @RequestParam String productId, Principal principal
     ) {
         return "redirect";
+    }
+
+    @ResponseBody
+    @GetMapping("/myCart")
+    public List<Product> getCartProducts(Principal principal) {
+
+        final String email = principal.getName();
+
+        System.out.println(email);
+
+        Optional<User> userOptional = userService.findByEmail(email);
+
+        if (userOptional.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        User user = userOptional.get();
+
+        return user.getCart().getProducts();
+
     }
 
 }

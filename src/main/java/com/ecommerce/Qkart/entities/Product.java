@@ -1,5 +1,6 @@
 package com.ecommerce.Qkart.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -14,12 +15,11 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Document
-@NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
 	@Id
-	private String productID;
+	private String productId;
 
 	private String name;
 	private String description;
@@ -31,5 +31,9 @@ public class Product {
 
 	@DocumentReference
 	private List<ProductReview> reviews;
+
+	public Product() {
+		this.reviews = new ArrayList<>();
+	}
 
 }
